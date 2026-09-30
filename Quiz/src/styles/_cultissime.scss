@@ -1,0 +1,167 @@
+.cultissime {
+  position: relative;
+  z-index: 1;
+  padding-inline: var(--padding-nav);
+  padding-block: var(--padding-nav) 0;
+  display: grid;
+  grid-template-columns: clamp(10rem, 30%, 18.75rem) minmax(0, 40rem);
+  justify-content: center;
+  align-items: end;
+  gap: 2rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    inset-block-end: 1rem;
+    z-index: -1;
+    background-color: var(--color-accent);
+    background-image: url("../images/pattern-red.png");
+    background-repeat: repeat;
+    background-size: 120px;
+  }
+
+  &__figure {
+    align-self: end;
+    margin-block-end: -3rem;
+  }
+
+  &__crown {
+    display: block;
+    position: relative;
+    inline-size: 75%;
+    margin-inline: auto;
+    margin-block-end: -10%;
+  }
+
+  &__title {
+    color: var(--color-base);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-block: 0 .5rem;
+  }
+
+  &__description {
+    color: var(--color-base);
+    margin-block-end: 1.5rem;
+  }
+
+  &__card {
+    max-inline-size: 40rem;
+    position: relative;
+    background: var(--color-base);
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    box-shadow: 0 2.5rem 3.5rem -1rem color-mix(in srgb, var(--color-accent) 25%, transparent);
+
+    &::before {
+      content: "";
+    
+      position: absolute;
+    
+      inset-block-start: 1rem;
+      inset-inline-end: calc(100% - .3rem);
+    
+      border-block: .6rem solid transparent;
+      border-inline-end: 2.5rem solid var(--color-base);
+    
+      transform: rotate(15deg);
+    }
+  }
+
+  &__quote {
+    flex-basis: 100%;
+    margin: 0;
+    color: var(--color-canvas);
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__hint {
+    flex: 1 1 14rem;
+    margin: 0;
+    color: var(--color-contrast);
+    font-size: .85rem;
+
+    strong {
+      display: block;
+      margin-block-start: .5rem;
+      color: var(--color-accent);
+    }
+  }
+
+  &__reveal {
+    margin: 0;
+  }
+
+  &__summary {
+    display: inline-block;
+    cursor: pointer;
+    background: var(--button-background);
+    color: var(--color-base);
+    padding: var(--button-padding-block) var(--button-padding-inline);
+    border: var(--button-border);
+    font-weight: 700;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &__answer {
+    color: var(--color-canvas);
+    margin-block: 1rem 0;
+  }
+
+  @media (width <= 768px) {
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    &__content {
+      display: contents;
+    }
+
+    &__title {
+      order: 1;
+    }
+
+    &__description {
+      order: 2;
+    }
+
+    &__figure {
+      order: 3;
+      justify-self: center;
+      inline-size: 11rem;
+      margin-block-end: 0;
+    }
+
+    &__card {
+      order: 4;
+      margin-block: -3rem -4rem;
+      margin-inline: -1rem;
+      box-shadow: 0 2.5rem 3.5rem -1rem color-mix(in srgb, var(--color-accent) 25%, transparent);
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &__reveal {
+      flex-basis: 100%;
+    }
+
+    &__summary {
+      display: block;
+      text-align: center;
+    }
+  }
+}

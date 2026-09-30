@@ -1,0 +1,19 @@
+img {
+  inline-size: 100%;
+}
+body {
+  font-family: var(--fontfamily-primary);
+  background: var(--color-canvas);
+  color: var(--color-base);
+}
+nav {
+  a {
+    color: var(--color-base);
+    text-decoration: none;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+}

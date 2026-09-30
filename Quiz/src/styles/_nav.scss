@@ -1,0 +1,128 @@
+.navbar {
+  inline-size: var(--layout-inline-size);
+  margin-inline: auto;
+  box-sizing: border-box;
+  padding: calc(var(--padding-nav) / 2) var(--padding-nav);
+  color: var(--color-base);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  &__logo {
+    img {
+      inline-size: 8rem;
+    }
+  }
+
+  &__toggle {
+    position: absolute;
+    opacity: 0;
+  }
+
+  &__burger {
+    display: none;
+  }
+
+  &__menu {
+    display: flex;
+    gap: var(--padding-nav);
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    &::before {
+      content: "";
+      display: block;
+      inline-size: 32px;
+      block-size: 32px;
+      flex: 0 0 32px;
+      background-image: url("../images/icon_nav.svg");
+      background-repeat: no-repeat;
+      background-size: 168px 72px;
+    }
+  }
+
+  &__item {
+    &:nth-child(1) .navbar__link::before {
+      background-position: -20px -20px;
+    }
+    &:nth-child(2) .navbar__link::before {
+      background-position: -68px -20px;
+    }
+    &:nth-child(3) .navbar__link::before {
+      background-position: -116px -20px;
+    }
+    &:first-child .navbar__link {
+      border-block-end: 2px solid var(--color-active);
+      padding-block-end: .2rem;
+    }
+  }
+
+  &:has(.navbar__toggle:checked) {
+    .navbar__menu,
+    .lang {
+      display: flex;
+    }
+  }
+
+  @media (width <= 768px) {
+    padding-inline: 1.5rem;
+
+    &__logo img {
+      inline-size: 5rem;
+    }
+
+    &__burger {
+      display: block;
+      inline-size: 28px;
+      block-size: 18px;
+      cursor: pointer;
+      background:
+        linear-gradient(var(--color-base), var(--color-base)) left top / 84% 3px no-repeat,
+        linear-gradient(var(--color-base), var(--color-base)) left center / 100% 3px no-repeat,
+        linear-gradient(var(--color-base), var(--color-base)) left bottom / 61% 3px no-repeat;
+    }
+
+    &__toggle:focus-visible + .navbar__burger {
+      outline: 2px solid var(--color-base);
+      outline-offset: 4px;
+    }
+
+    &__menu,
+    .lang {
+      display: none;
+      flex-basis: 100%;
+    }
+
+    &__menu {
+      flex-direction: column;
+      gap: .75rem;
+    }
+  }
+}
+
+.lang {
+  display: flex;
+  gap: .5rem;
+
+  &__link {
+    display: block;
+    padding: .55rem 1.1rem;
+    border: 1px dashed #00000066;
+    font-size: .85rem;
+    font-weight: 400;
+    color: #00000066;
+
+    &--active {
+      border-style: none;
+      background: var(--color-active);
+      color: var(--color-base);
+      font-weight: 400;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+:root {
+  --color-canvas: #F2E9DA;
+  --color-base: #141414;
+  --color-hero-bg: #5FA79E;
+  --color-accent: #E96C7A;
+  --color-active: #F2C744;
+  --color-active-dark: #D9A21B;
+  --color-contrast: #fff;
+
+  --fontfamily-primary: 'Rubik';
+  --fontfamily-number: 'Barrio';
+
+  --layout-inline-size: 80%;
+
+  --border-radius-primary: 2rem;
+  --border-radius-secondary: .5rem;
+
+  --button-padding-inline: 1.5rem;
+  --button-padding-block: .8rem;
+  --button-radius: 10rem;
+  --button-border: 3px solid var(--color-base);
+  --button-background: linear-gradient(var(--color-active), var(--color-active-dark), var(--color-active));
+
+  --margin-link: 1.3rem;
+  --padding-nav: 2rem;
+
+  @media (width <= 768px) {
+    --layout-inline-size: 100%;
+  }
+}
